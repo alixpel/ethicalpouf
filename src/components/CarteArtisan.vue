@@ -4,8 +4,6 @@
       <h3>{{artisan.name}}</h3>
       <h4>{{artisan.origine}}</h4>
     </div>
-    <!-- <img :src="photoURL()"/> -->
-
     <button @click="voirArtisan(artisan.id)">Voir le travail de cet artisan</button>
 
   </div>
@@ -20,9 +18,9 @@ export default {
     methods: {
       photoURL() {
         if (this.artisan.photo) {
-          return 'http://localhost:3000/uploads/' + this.artisan.photo;
+          return "http://localhost:3000/uploads/" + this.artisan.photo;
         } else {
-          return 'http://localhost:3000/uploads/portrait-neutre.png';
+          return "http://localhost:3000/uploads/portrait-neutre.png"; // image par défaut
         }
       },
       voirArtisan(identifiant) {

@@ -1,14 +1,15 @@
 <template lang="html">
   <div class="">
     <div class="artisan-ensemble" v-for="artisanSelectionne in artisan" :key="artisanSelectionne.id">
-      <div class="portrait">
-        <img :src="photoURL()"/>
+      <div class="portrait" v-bind:style="{ backgroundImage: 'url(' + photoURL(artisanSelectionne.photo) + ')' }">
       </div>
       <div class="presentation">
         <h2>{{ artisanSelectionne.name}}</h2>
         <p>{{ artisanSelectionne.presentation}}</p>
+        
       </div>
     </div>
+    
     <h3> Produits de cet artisan: </h3>
     <div class="products">
       <div class="products-div" v-for="product in produitsArtisan" :key="product.id">
@@ -19,15 +20,19 @@
 </template>
 <script>
 import CarteProduit from "@/components/CarteProduit";
+// import CarteArtisan from "@/components/CarteArtisan";
+// import {artisans as artisansFromData} from "@/data.js";
 export default {
   name: "ArtisanDetails",
   components: { CarteProduit },
   methods: {
       photoURL() {
         if (this.artisan.photo) {
-          return 'http://localhost:3000/uploads/' + this.artisan.photo;
+          console.log(this.artisan.photo);
+          return "http://localhost:3000/uploads/" + this.artisan.photo;
         } else {
-          return 'http://localhost:3000/uploads/portrait-neutre.png';
+          return "http://localhost:3000/uploads/portrait-neutre.png"; // image par défaut
+         
         }
       },
       voirArtisan(identifiant) {
@@ -42,9 +47,10 @@ export default {
   },
   mounted() {
       const axios = require("axios");
+      // artisan :
       axios.get(`http://localhost:3000/artisan/${this.$route.params.id}`)
       .then(response => (this.artisan = response.data));
-//PAS TRES SURE ENCORE DONC TU PEUX COMMENTER POUR VOIR SI LE RESTE FONCTIONNE:
+      // ses produits :
       axios.get(`http://localhost:3000/produitsArtisan/${this.$route.params.id}`)
       .then(response => (this.produitsArtisan = response.data));
   },
@@ -63,6 +69,11 @@ export default {
 
   .presentation, .portrait {
     width: 49%;
+  }
+
+  .portrait {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
   }
 
   .presentation {
@@ -94,11 +105,6 @@ export default {
     color: #006845;
     margin-bottom: 2rem;
     text-align: center;
-  }
-
-  .portrait img {
-    width: 100%;
-    height: 100%;
   }
 
   @media only screen and (max-device-width: 1024px) {

@@ -75,7 +75,7 @@ export default {
   
   data() {
      return {
-       artisans:"",
+      artisans:"",
       artisanDuMois : "",
       produitsArtisanDuMois: "",
       produitsFirstpage:"",
@@ -98,6 +98,17 @@ export default {
       .then(response => (this.artisansFirstpage = response.data))
 
   },
+  //  mounted() {
+  //    const axios = require("axios");
+  //    axios.get(`http://localhost:3000/artisanDuMois/${this.$route.params.id}`)
+  //     .then(response => (this.artisanDuMois = response.data));
+  //    axios.get(`http://localhost:3000/produitsArtisanDuMois/${this.$route.params.id}`)
+  //     .then(response => (this.produitsArtisanDuMois = response.data));
+  //   axios.get('http://localhost:3000/produitsFirstpage')
+  //    .then(response => (this.produitsFirstpage = response.data))
+  //   axios.get('http://localhost:3000/artisansFirstpage')
+  //    .then(response => (this.produitsFirstpage = response.data))
+  // },
 
 
 }
@@ -133,7 +144,10 @@ export default {
 .portrait .artisan {
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
   height: 90vh;
+  justify-content: space-between;
   margin: 1rem;
   padding: 2rem 1rem 1rem 1rem;
   width: 44vw;
@@ -172,7 +186,10 @@ export default {
 }
 
 .groupe-artisans .artisan, .groupe-produits .product {
+  display: flex;
+  flex-direction: column;
   height: 48vh;
+  justify-content: space-between;
   padding: 2rem 1rem;
 }
 

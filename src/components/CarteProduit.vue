@@ -1,9 +1,10 @@
 <template>
   <div class="product" v-bind:style="{ backgroundImage: 'url(' + photoURLProduit() + ')' }">
-    <h3>{{product.name}}</h3>
+    <div>
+      <h3>{{product.name}}</h3>
     <h4>{{product.category}}</h4>
     <h4>{{product.type}}</h4>
-    <!-- <img :src="photoURLProduit()"/> -->
+    </div>
 
     <button @click="voirProduit(product.id)">Voir ce produit</button>
 
@@ -35,7 +36,7 @@ export default {
 <style scoped>
 
   .product {
-    background-color: rgb(240, 220, 240);
+    background-color: rgb(247, 246, 251);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     margin: 1rem;
@@ -57,9 +58,10 @@ export default {
     color: #006845;
     font-size: 1rem;
     font-weight: 500;
-    margin-top: 1rem;
+    margin: 1rem auto;
     padding: 0.5rem 1.2rem 0.4rem 1.2rem;
     text-align: center;
+    width: fit-content;
   }
 
   img {

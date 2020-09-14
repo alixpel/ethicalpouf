@@ -55,9 +55,10 @@ export default {
     color: #006845;
     font-size: 1rem;
     font-weight: 500;
-    margin-top: 1rem;
+    margin: 1rem auto;
     padding: 0.5rem 1.6rem 0.4rem 1.6rem;
     text-align: center;
+    width: fit-content;
   }
 
   img {

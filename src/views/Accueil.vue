@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="accueil-div">
-      <h2>Les Produits</h2>
+      <h2>Les produits du moment</h2>
       <div class="groupe-produits">
         <div class="product-div" v-for="product in produitsFirstpage" :key="product.id">
           <CarteProduit :product="product"/>
@@ -72,7 +72,7 @@ export default {
   components:
     { CarteProduit, CarteArtisan },
 
-
+  
   data() {
      return {
       artisans:"",
@@ -131,7 +131,7 @@ export default {
 }
 
 .presentation-text {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.6);
   font-size: 1.3rem;
   padding: 1rem;
   width: 40vw;
@@ -150,7 +150,7 @@ export default {
   justify-content: space-between;
   margin: 1rem;
   padding: 2rem 1rem 1rem 1rem;
-  width: 44vw;
+  width: 48vw;
 }
 
 .portrait {
@@ -158,8 +158,16 @@ export default {
 }
 
 .artisan-du-mois .product-div {
-  border: 1px solid green;
-  height: 47%;
+  height: 50%;
+  width: 24.5vw;
+}
+
+.artisan-du-mois .product {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  justify-content: space-between;
+  padding: 1rem 1rem;
 }
 
 .artisan-du-mois .produits {
@@ -167,7 +175,7 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
+  height: auto;
 }
 
 .groupe-artisans {
@@ -177,26 +185,34 @@ export default {
   justify-content: center;
 }
 
-.groupe-produits .product-div {
-  width: 24.9vw;
-}
-
 .artisan-div {
   width: 24.9vw;
 }
 
-.groupe-artisans .artisan, .groupe-produits .product {
+.groupe-artisans .artisan {
   display: flex;
   flex-direction: column;
   height: 48vh;
   justify-content: space-between;
-  padding: 2rem 1rem;
+  padding: 1rem 1rem;
 }
 
 .groupe-produits {
   display: flex;
   flex-direction: row;
-  flew-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.groupe-produits .product-div {
+  width: 24.9vw;
+}
+
+.groupe-produits .product {
+  display: flex;
+  flex-direction: column;
+  height: 48vh;
+  justify-content: space-between;
+  padding: 1rem 1rem;
 }
 
 .engagements-div {
@@ -261,8 +277,7 @@ export default {
    .portrait .artisan {
      background-size: cover;
      height: 69vh;
-     padding: 1rem;
-     padding-top: 29rem;
+     padding: 2rem;
      width: 95vw;
    }
 
@@ -286,6 +301,12 @@ export default {
 
     .presentation h2 {
       font-size: 4rem;
+    }
+
+    .artisan-du-mois button {
+      width: fit-content;
+      margin: auto;
+      margin-bottom: 0px;
     }
 
  }

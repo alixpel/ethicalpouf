@@ -72,7 +72,7 @@ export default {
   components:
     { CarteProduit, CarteArtisan },
 
-  
+
   data() {
      return {
       artisans:"",
@@ -162,7 +162,7 @@ export default {
   height: 47%;
 }
 
-.artisans-du-mois .produits {
+.artisan-du-mois .produits {
   align-content: space-around;
   display: flex;
   flex-direction: row;

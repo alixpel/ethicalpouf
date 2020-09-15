@@ -113,11 +113,11 @@ data() {
   }
 
   .fa-caret-right {
-    color: #006845;
+    color: #0f5209;
   }
 
   .presentation a {
-    color: #006845;
+    color: #0f5209;
     text-decoration: none;
   }
 

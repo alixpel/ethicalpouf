@@ -5,7 +5,6 @@
         <div class="footer-div">
           <h6>Inscription Newsletter</h6>
           <div class="newsletter">
-            <label for="newsletter"></label>
             <input type="email" name="newsletter" value="" placeholder="votre email">
             <button type="submit" name="button" class="send">Envoi</button>
           </div>
@@ -231,6 +230,10 @@ footer {
 
   .legal a {
     font-size: 1.2rem;
+  }
+
+  .send {
+    background-color: #d3d3d3;
   }
 
 }

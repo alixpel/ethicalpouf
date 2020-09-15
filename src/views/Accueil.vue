@@ -5,7 +5,7 @@
         <h2>EthicAlly, qu'est-<br>ce que c'est ?</h2>
         <p>Sensible au monde et à ceux qui l’habitent.  Ethically est l’alliance du bien et du bien.
         Un espace  où les artisans de l’éthique vous présentent leurs créations et leurs engagements écologiques et humains.
-        Parce qu'intégrer l’éthique dans notre mode de vie ; c’est intégrer l’éthique dans notre mode de consommer.</p>
+        Parce qu'intégrer l’éthique dans notre mode de vie; c’est intégrer l’éthique dans notre mode de consommer.</p>
         <a href="#">En savoir plus</a>
       </div>
     </div>
@@ -149,7 +149,7 @@ export default {
   height: 90vh;
   justify-content: space-between;
   margin: 1rem;
-  padding: 2rem 1rem 1rem 1rem;
+  padding: 2rem 1rem 0.6rem 1rem;
   width: 48vw;
 }
 
@@ -167,7 +167,7 @@ export default {
   flex-direction: column;
   height: 90%;
   justify-content: space-between;
-  padding: 1rem 1rem;
+  padding: 0.8rem 1rem;
 }
 
 .artisan-du-mois .produits {
@@ -194,7 +194,7 @@ export default {
   flex-direction: column;
   height: 48vh;
   justify-content: space-between;
-  padding: 1rem 1rem;
+  padding: 0.8rem 1rem;
 }
 
 .groupe-produits {
@@ -212,7 +212,7 @@ export default {
   flex-direction: column;
   height: 48vh;
   justify-content: space-between;
-  padding: 1rem 1rem;
+  padding: 0.8rem 1rem;
 }
 
 .engagements-div {
@@ -246,7 +246,7 @@ export default {
 }
 
 .presentation a {
-  color: #006845;
+  color: #0f5209;
   font-weight: 600;
 }
 
@@ -255,6 +255,10 @@ export default {
    .presentation, .accueil-div, .engagements {
      margin: auto;
    }
+
+   .accueil-div {
+      margin-top: 2rem;
+    }
 
    .presentation {
      background-position: center;
@@ -281,10 +285,6 @@ export default {
      width: 95vw;
    }
 
-   .product-div, .artisan-div {
-     width: 48vw;
-   }
-
    .engagements-div {
      padding: 2rem 1rem 1rem 1rem;
    }
@@ -299,8 +299,16 @@ export default {
      width: 95vw;
    }
 
+   .accueil-div h2 {
+     margin-bottom: 1rem;
+   }
+
     .presentation h2 {
       font-size: 4rem;
+    }
+
+    .groupe-artisans .artisan, .groupe-produits .product {
+      height: 33.5vh;
     }
 
     .artisan-du-mois button {
@@ -309,45 +317,107 @@ export default {
       margin-bottom: 0px;
     }
 
+    .groupe-artisans button {
+      font-size: 1.3rem;
+      margin: auto;
+      margin-bottom: 0px;
+      width: fit-content;
+    }
+
  }
 
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+
+@media only screen and (max-device-width: 1024px) and (min-device-width: 670px) {
+
+   .artisan-du-mois .product-div {
+     width: 49vw;
+   }
+
+   .groupe-produits .product-div {
+     width: 49vw;
+   }
+
+   .groupe-artisans .artisan-div {
+     width: 49vw;
+   }
+
+}
+
+@media only screen and (max-device-width: 670px) {
 
   .accueil-div {
-    margin-top: 1rem;
+    margin-top: 3rem;
   }
 
-  .product-div, .artisan-div {
+  .groupe-produits .product-div, .artisan-du-mois .product-div, .groupe-artisans .artisan-div {
     width: 100vw;
   }
 
+  .groupe-produits .product, .groupe-artisans .artisan {
+    height: 40vh;
+  }
+
+  .artisan-du-mois .product {
+    background-color: rgba(252, 252, 252, 0);
+    height: 38vh;
+  }
+
+  .artisan, .product {
+    width: 90%;
+  }
+
+  .artisan-du-mois .product {
+    width: initial;
+  }
+
   .presentation {
+    background-image: url("../assets/sculpture2.png");
+    background-position: center;
     padding: 0.6rem;
     width: 100%;
   }
 
   .presentation-text {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.4);
     margin: auto;
     width: 100%;
+  }
+
+  .portrait .artisan {
+    background-size: contain;
+    height: 43.5vh;
+    padding: 0.6rem;
+    padding-top: 2rem;
+    width: 94vw;
+  }
+
+  .groupe-artisans, .groupe-produits, .artisan-du-mois .produits {
+    flex-direction: column;
+    flex-wrap: nowrap;
   }
 
   .presentation-text h2 {
     font-size: 2rem;
   }
 
+  .accueil-div h2 {
+    font-size: 1.7;
+  }
+
   .presentation-text p {
     font-size: 1.1rem;
   }
 
-  .portrait .artisan {
-    background-size: contain;
-    height: 43.5vh;
-    padding: 1rem;
-    padding-top: 5rem;
-    width: 94vw;
+  .artisan h3, .product h3 {
+    font-size: 1.6;
   }
 
+  button {
+    font-size: 1rem;
+    padding: 0.4rem 1.2rem;
+  }
+  
+  
 
 
 

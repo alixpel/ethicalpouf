@@ -69,6 +69,10 @@ export default {
   .artisan-div {
     width: 48vw;
   }
+
+  .artisan {
+      height: 33.5vh;
+    }
  }
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {

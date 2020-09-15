@@ -36,9 +36,9 @@ export default {
 <style scoped>
 
   .product {
-    background-color: rgb(247, 246, 251);
+    background-position: center;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
     margin: 1rem;
   }
 
@@ -55,7 +55,7 @@ export default {
     background-color: rgba(240, 240, 240, 0.7);
     border: none;
     border-radius: 1.5rem;
-    color: #006845;
+    color: #0f5209;
     font-size: 1rem;
     font-weight: 500;
     margin: 1rem auto;
@@ -64,19 +64,25 @@ export default {
     width: fit-content;
   }
 
+  button:hover {
+  background-color: rgba(240, 240, 240, 1);
+  transition: all 0.5s ease-out;
+  }
+
   img {
     width: 100%;
   }
 
   @media only screen and (max-device-width: 1024px) {
-    button {
-      font-size: 1.5rem;
-    }
+    .product {
+    background-size: contain;
+  }
+  
 
   }
 
   @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
-
+    
 
   }
 

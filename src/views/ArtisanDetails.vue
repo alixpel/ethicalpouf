@@ -102,7 +102,7 @@ export default {
   }
 
   .presentation h2 {
-    color: #006845;
+    color: #0f5209;
     margin-bottom: 2rem;
     text-align: center;
   }

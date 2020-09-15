@@ -56,8 +56,13 @@
 
 
   @media only screen and (max-device-width: 1024px) {
+
     .product-div {
       width: 48vw;
+    }
+
+    .product {
+      height: 33.5vh;
     }
   }
 

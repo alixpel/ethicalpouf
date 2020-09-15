@@ -38,7 +38,7 @@
             <button class="burger-close" type="button" name="button" @click.prevent="closeSmartphoneMenu" v-if="crossDisplay"><i class="fas fa-times"></i></button>
           </div>
           <div class="title">
-            <h1>Ethically</h1>
+            <img src="../assets/logosmall.png" alt="logo">
           </div>
         </div>
         <div class="smartphone-menu" v-if="smartphoneMenuDisplay">
@@ -207,7 +207,7 @@ header .menu {
 // LINKS
 
 .menu a {
-  color: #006845;
+  color: #0f5209;
   font-size: 1.3rem;
   font-weight: 600;
 }
@@ -238,25 +238,6 @@ header .menu {
   list-style-type: none;
 }
 
-// .menu li:before {
-//   content: "";
-//   position: absolute;
-//   width: 100%;
-//   height: 1px;
-//   bottom: 0;
-//   left:	0;
-//   background-color: #1a535c;
-//   visibility: hidden;
-//   transform: scaleX(0);
-//   transition: all .3s ease-in-out;
-// }
-//
-// .menu li:hover:before {
-//   visibility: visible;
-//   transform: scaleX(1);
-// }
-
-
 /* INPUTS */
 
 .pop-up-searchbar input {
@@ -285,7 +266,7 @@ header .menu {
   background-color: #cdd8d5;
   border: 0px;
   border-radius: 0rem 1rem 1rem 0rem;
-  color: #0c3729;
+  color: #0f5209;
   padding: 0.2rem 0.8rem 0.1rem 0.7rem;
 }
 
@@ -305,9 +286,6 @@ header .menu {
 
 
 
-
-/*================= MEDIA QUERIES =================*/
- // and (min-device-width: 768px)
 @media only screen and (max-device-width: 1024px) {
 
   .desktop-header {
@@ -321,7 +299,7 @@ header .menu {
   }
 
   .burger-and-title {
-    align-items: baseline;
+    align-items: center;
     display: flex;
     justify-content: space-between;
     line-height: 0.3;
@@ -362,7 +340,7 @@ header .menu {
   }
 
   .smartphone-menu a {
-    color: #006845;
+    color: #0f5209;
     font-size: 2.2rem;
     font-weight: 600;
   }
@@ -370,6 +348,10 @@ header .menu {
   .title a {
     color: black;
     text-decoration: none;
+  }
+
+  .smartphone-header img {
+    height: 16rem;
   }
 
 }
@@ -386,7 +368,6 @@ header .menu {
   }
 
   .burger-and-title {
-    align-items: baseline;
     width: 77vw;
   }
 
@@ -415,6 +396,18 @@ header .menu {
 
   .fa-bars, .fa-times {
     font-size: 3rem;
+  }
+  
+  .smartphone-menu li {
+    line-height: 3.5rem;
+  }
+
+  .smartphone-menu a {
+    font-size: 1.6rem;
+  }
+
+  .smartphone-header img {
+    height: 14rem;
   }
 
 

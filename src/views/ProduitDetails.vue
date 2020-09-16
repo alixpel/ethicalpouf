@@ -24,6 +24,7 @@
 
 <script>
   // import CarteArtisan from "@/components/CarteArtisan";
+  import PageProduit from "@/components/PageProduit";
   export default {
     name: 'ProduitDetails',
     components: { PageProduit },

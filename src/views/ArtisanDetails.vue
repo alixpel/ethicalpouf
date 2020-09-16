@@ -21,7 +21,7 @@
 </template>
 <script>
 import CarteProduit from "@/components/CarteProduit";
-import CarteArtisan from "@/components/PageArtisan";
+import PageArtisan from "@/components/PageArtisan";
 // import {artisans as artisansFromData} from "@/data.js";
 export default {
   name: "ArtisanDetails",

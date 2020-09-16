@@ -44,16 +44,42 @@
       <h2>Nos engagements</h2>
       <div class="engagements">
         <div class="engagement">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis.</p>
+          <p>Notre projet et l’effet papillon de nos achats.</p>
+          <p>Acheter, cette simple action quotidienne peut receler des enjeux éthiques, humains et écologiques.</p>
+          <p>Afin de vous permettre de consommer l’esprit serein, Ethically s’est chargé de sélectionner les marques les plus responsables du marché européen et africain.</p>
+          <p>Ainsi, vous ne trouverez que des marques qui ont adopté une démarche humainement et écologiquement éthique.</p>
         </div>
         <div class="engagement">
-          <p>I ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Nos 3 missions
+          <p>Pallier à la surexploitation de nouvelles matières premières.</p>
+          <p>Limiter la surproduction de déchets.</p>
+          <p>Soutenir les entreprises sociales et solidaires.</p>
+          <p>Concrètement, nos produits sont fait à partir de matériaux recyclés, confectionnés dans le respect des droits humains et permettant une rémunération équitable.</p>
+          <p>Concrètement, nos produits sont fait à partir de matériaux recyclés, dont la fabrication est respectueuse des droits humains et la rémunération de toutes les parties prenantes équitable.</p>
+          <p>Nous tiens également à coeur la problématique de la pollution carbone. C’est la raison pour laquelle vous pouvez choisir chez des artisans près de chez vous.</p>
         </div>
         <div class="engagement">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>Nos valeurs</p>
+          <p>La clé de voûte de notre projet est l’éthique.</p>
+          <p>Il en découle la transparence et une sélection accrue de nos produits.</p>
+          <p>Ainsi, nous vous assurons qu’ils sont écologiquement responsable, issus de l’économie circulaire, respectueux des droits humains, avec une rémunération équitable de toutes les parties prenantes.</p>
         </div>
         <div class="engagement">
-          <p>Dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Vous et nous, ensemble</p>
+          <p>Nous sommes tous concernés par le sort de notre planète, de son vivant et de nos semblables.</p>
+          <p>Nous avons donc décidé d’être acteur du changement et de vous permettre de l’être aussi en consommant humainement et écologiquement éthique.</p>
+        </div>
+        <div class="engagement">
+          <p>Nos artisans</p>
+          <p>Nos partenaires ont pris le pari de changer le monde.</p>
+          <p>Ensemble, nous pouvons les aider les aider à faire naître un monde meilleur, conscient de ses richesses et de ses vulnérabilités.</p>
+        </div>
+        <div class="engagement">
+          <p>Le transport</p>
+          <p>Les créations de nos artisans viennent directement de leur atelier jusqu'à chez vous. Moins d'intermédiaire, moins d'acheminement, moins de pollution.</p>
+        </div>
+        <div class="engagement">
+
         </div>
       </div>
     </div>
@@ -234,7 +260,6 @@ export default {
   height: 100%;
   padding: 2rem 1rem;
   text-align: center;
-  width: 23vw;
 }
 
 .presentation h2 {

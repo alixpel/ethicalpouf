@@ -1,7 +1,8 @@
 <template lang="html">
   <div class="product">
-    <div class="product-ensemble" v-for="produitSelectionne in produit" :key="produitSelectionne.id">
-      <div class="picture">
+    <div class="product-ensemble" v-for="product in produitSelect" :key="product.id">
+      <PageProduit :product="product"/>
+      <!-- <div class="picture">
         <img class="main-picture" :src="firstPhotoURL()" :alt="produitSelectionne.name">
         <img class="second-vue" :src="secondPhotoURL()" :alt="produitSelectionne.name">
       </div>
@@ -16,44 +17,30 @@
           <li><i class="fas fa-caret-right"></i> Matériaux : {{produitSelectionne.materials}}</li>
         </ul>
         <p>{{produitSelectionne.longPrez}}</p>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
 
 <script>
-  import CarteArtisan from "@/components/CarteArtisan";
+  // import CarteArtisan from "@/components/CarteArtisan";
   export default {
     name: 'ProduitDetails',
-    components: { CarteArtisan },
-    methods: {
-      firstPhotoURL() {
-        if (this.product.photo) {
-          return 'http://localhost:3000/uploads/' + this.product.photo;
-        } else {
-          return 'http://localhost:3000/uploads/portrait-neutre.png';
-        }
-      },
-      secondPhotoURL() {
-        if (this.product.secondPhoto) {
-          return 'http://localhost:3000/uploads/' + this.product.secondPhoto;
-        } else {
-          return 'http://localhost:3000/uploads/portrait-neutre.png';
-        }
-      },
-    },
+    components: { PageProduit },
 
 data() {
     return {
-      produit: "",
-      artisan: "",
-      artisanProduit: "",
+      produitSelect: ""
+      // artisan: "",
+      // artisanProduit: "",
     };
   },
   mounted() {
       const axios = require("axios");
-      axios.get(`http://localhost:3000/produit/${this.$route.params.id}`)
-      .then(response => (this.produit = response.data));
+      // le produit
+      axios.get(`http://localhost:3000/produitSelect/${this.$route.params.id}`)
+      .then(response => (this.produitSelect = response.data));
+      // son artisan :
       axios.get(`http://localhost:3000/artisanProduit/${this.$route.params.id}`).then(response => (this.artisanProduit = response.data));
   },
 };

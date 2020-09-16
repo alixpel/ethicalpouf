@@ -18,6 +18,9 @@
         <label for="origine">origine</label>
         <input type="text" v-model="artisan.origine"/><br><br>
 
+        <label for="photo">portrait</label>
+        <input type="file" name="photo" v-on:change="artisan.photo" /><br><br>
+
         <label for="firstPage">première page</label>
         <input type="checkbox" v-model="artisan.firstPage"><br><br>
 
@@ -59,6 +62,7 @@ export default {
           name: artisan.name,
           presentation: artisan.presentation,             
           origine: artisan.origine,
+          photo: artisan.photo,
           firstPage: artisan.firstPage,
           artisanDuMois: artisan.artisanDuMois        
       })

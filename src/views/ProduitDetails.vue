@@ -1,17 +1,40 @@
 <template lang="html">
-  <div class="product">
-    <div class="product-ensemble" v-for="product in produitSelect" :key="product.id">
-      <PageProduit :product="product"/>
+  <div class="background">
+    <div class="product-ensemble">
+      <div class="photo" v-for="product in produitSelect" :key="product.id">
+        <div class="smartphone">
+          <h3>{{ product.name}}</h3>
+        </div>
+        <ImageProduit :product="product"/>
+      </div>
+      <div v-for="product in produitSelect" :key="product.id" class="presentation">
+        <div  class="desktop">
+          <h3>{{product.name}}</h3>
+        </div>
+        <div class="category-type">
+          <div class="category">{{product.category}}</div>
+          <div><i class="fas fa-ellipsis-h"></i></div>
+          <div class="type">{{product.type}}</div>
+        </div>
+        <div class="assets">
+          <ul>
+            <li><sub><i class="fas fa-caret-right"></i></sub> Origine : {{product.origine}}</li>
+            <li><sub><i class="fas fa-caret-right"></i></sub> Dimensions :  {{product.dimensions}}</li>
+            <li><sub><i class="fas fa-caret-right"></i></sub> Matériaux : {{product.materials}}</li>
+          </ul>
+          <p>{{product.longPrez}}</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
   // import CarteArtisan from "@/components/CarteArtisan";
-  import PageProduit from "@/components/PageProduit";
+  import ImageProduit from "@/components/ImageProduit";
   export default {
     name: 'ProduitDetails',
-    components: { PageProduit },
+    components: { ImageProduit },
 
 data() {
     return {
@@ -34,42 +57,58 @@ data() {
 
 
 <style lang="css" scoped>
-  .product {
-    border: 1px solid rgb(250, 250, 250);
-    display: flex;
-    flex-direction: row;
-    margin: auto;
-    margin-bottom: 4rem;
-    justify-content: space-between;
-    width: 90vw;
+
+  .background {
+    background-color: rgb(250, 250, 250);
+    padding-bottom: 2rem;
+    padding-top: 4rem;
   }
 
   .product-ensemble {
-    border: 1px solid rgb(250, 250, 250);
+    background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: row;
-    height: 90vh;
+    justify-content: space-between;
     margin: auto;
-    justify-content: space-between;
-    width: 100%;
+    margin-bottom: 4rem;
+    min-height: 90vh;
+    padding: 1rem;
+    width: 90vw;
   }
 
-  .picture, .presentation {
-    border: 1px solid rgb(250, 250, 250);
-    width: 49%;
+  .photo, .presentation {
+    width: 43.1vw;
   }
 
-  .picture {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  .product {
+    height: 100%;
   }
 
   .presentation {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+  }
+
+  .desktop {
+    margin-top: 1rem;
+  }
+
+  .smartphone {
+    display: none;
+  }
+
+  .category-type {
+    background-color: rgb(240, 240, 240);
+    border-radius: 0.2rem;
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0rem;
+    padding: 0.6rem 0rem 0.4rem 0rem;
+  }
+
+  .type, .category {
+    color: #006845;
+    font-weight: 600;
   }
 
   h2 {
@@ -84,8 +123,19 @@ data() {
     text-align: left;
   }
 
+  .assets p {
+    text-align: justify;
+  }
+
   .fa-caret-right {
-    color: #0f5209;
+    color: #15610f;
+    font-size: 1.5rem;
+  }
+
+  .fa-ellipsis-h {
+    color: #15610f;
+    display: none;
+    font-size: 1.5rem;
   }
 
   .presentation a {
@@ -97,12 +147,8 @@ data() {
     font-weight: 600;
   }
 
-  .product ul {
-    padding-inline-start: 0px;
-    margin-left: 0px;
-  }
-
-  .product li {
+  .assets li {
+    line-height: 2rem;
     list-style-type: none;
     text-align: left;
   }
@@ -116,15 +162,44 @@ data() {
 
   @media only screen and (max-device-width: 1024px) {
 
-    .presentation, .picture {
+    .product-ensemble {
+      flex-direction: column;
+    }
+
+    .product {
+      height: 60vh;
+    }
+
+    .presentation, .photo {
       width: 100%;
+    }
+
+    .smartphone {
+      display: block;
+      margin: 1rem;
+      text-align: center;
+    }
+
+    .desktop {
+      display: none;
+    }
+
+    .category-type {
+      background-color: rgb(240, 240, 240);
+      border-radius: 0.2rem;
+      padding: 0.7rem 0rem 0.6rem;
+    }
+
+    .fa-ellipsis-h {
+      display: block;
     }
   }
 
   @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
 
-    .products-div {
-      width: 100%;
+
+    .product {
+      height: 43vh;
     }
 
   }

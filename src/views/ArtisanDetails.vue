@@ -1,7 +1,9 @@
 <template lang="html">
   <div class="background">
     <div class="artisan-ensemble" v-for="artisan in artisanSelect" :key="artisan.id">
-      <div class="smartphone"><h3>{{ artisan.name}}</h3></div>
+      <div class="smartphone">
+        <h3>{{ artisan.name}}</h3>
+      </div>
       <PortraitArtisan :artisan="artisan" class="portrait"/>
       <div v-for="artisan in artisanSelect" :key="artisan.id" class="presentation">
         <div class="desktop"><h3>{{ artisan.name}}</h3></div>
@@ -59,9 +61,9 @@ export default {
     height: 90vh;
     justify-content: space-between;
     margin: auto;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
     min-height: 90vh;
-    padding: 1rem;;
+    padding: 1rem;
     width: 90vw;
   }
 
@@ -72,7 +74,7 @@ export default {
   .presentation {
     overflow: scroll;
     padding: 1rem;
-    text-align: left;
+    text-align: justify;
   }
 
   .products {
@@ -141,7 +143,7 @@ export default {
     }
 
     .desktop {
-      color: rgba(10, 10, 10, 0);
+      display: none;
     }
 
   }

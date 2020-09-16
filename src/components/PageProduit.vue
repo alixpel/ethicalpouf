@@ -4,6 +4,15 @@
       <h3>{{product.name}}</h3>
     <h4>{{product.category}}</h4>
     <h4>{{product.type}}</h4>
+    <div class="presentation">
+      <ul>
+        <li><i class="fas fa-caret-right"></i> Origine : {{product.origine}}</li>
+        <li><i class="fas fa-caret-right"></i> Dimensions :  {{product.dimensions}}</li>
+        <li><i class="fas fa-caret-right"></i> Matériaux : {{product.materials}}</li>
+      </ul>
+      <p>{{product.longPrez}}</p>
+    </div>
+      
     </div>
 
     <button @click="voirProduit(product.id)">Voir ce produit</button>

@@ -1,14 +1,11 @@
 <template lang="html">
   <div class="">
     <div class="artisan-ensemble" v-for="artisan in artisanSelect" :key="artisan.id">
-      <!-- <div class="portrait" v-bind:style="{ backgroundImage: 'url(' + photoURL(artisanSelectionne.photo) + ')' }">
+      <PortraitArtisan :artisan="artisan" class="portrait"/>
+      <div v-for="artisan in artisanSelect" :key="artisan.id" class="presentation">
+        <h3>{{ artisan.name}}</h3>
+        <p> Présentation:{{ artisan.presentation}}</p>
       </div>
-      <div class="presentation">
-        <h2>{{ artisanSelectionne.name}}</h2>
-        <p>{{ artisanSelectionne.presentation}}</p>
-        
-      </div> -->
-      <PageArtisan :artisan="artisan"/>
     </div>
     
     <h3> Produits de cet artisan: </h3>
@@ -21,25 +18,12 @@
 </template>
 <script>
 import CarteProduit from "@/components/CarteProduit";
-import PageArtisan from "@/components/PageArtisan";
+import PortraitArtisan from "@/components/PortraitArtisan";
 // import {artisans as artisansFromData} from "@/data.js";
 export default {
   name: "ArtisanDetails",
-  components: { CarteProduit, PageArtisan },
-  // methods: {
-  //     photoURL() {
-  //       if (this.artisan.photo) {
-  //         console.log(this.artisan.photo);
-  //         return "http://localhost:3000/uploads/" + this.artisan.photo;
-  //       } else {
-  //         return "http://localhost:3000/uploads/portrait-neutre.png"; // image par défaut
-         
-  //       }
-  //     },
-  //     voirArtisan(identifiant) {
-  //       this.$router.push({ path: `/artisandetails/${identifiant}` });
-  //     }
-  //   },
+  components: { CarteProduit, PortraitArtisan },
+  
   data() {
     return {
       artisanSelect: "",
@@ -70,12 +54,10 @@ export default {
   }
 
   .presentation, .portrait {
-    width: 49%;
+    width: 40vw;
   }
 
   .portrait {
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
   }
 
   .presentation {

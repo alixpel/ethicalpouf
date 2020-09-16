@@ -1,17 +1,11 @@
 <template>
   <div class="artisan" v-bind:style="{ backgroundImage: 'url(' + photoURL() + ')' }">
-    <div class="name-and-origin">
-      <h3>{{artisan.name}}</h3>
-      <h4>{{artisan.origine}}</h4>
-    </div>
-    <button @click="voirArtisan(artisan.id)">Voir le travail de cet artisan</button>
-
   </div>
 </template>
 
 <script>
 export default {
-    name: "PageArtisan",
+    name: "PortraitArtisan",
 
     props: ['artisan'],
 
@@ -36,7 +30,6 @@ export default {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin: 1rem;
   }
 
   .artisan h4, .artisan h3 {

@@ -2,22 +2,6 @@
   <div class="product">
     <div class="product-ensemble" v-for="product in produitSelect" :key="product.id">
       <PageProduit :product="product"/>
-      <!-- <div class="picture">
-        <img class="main-picture" :src="firstPhotoURL()" :alt="produitSelectionne.name">
-        <img class="second-vue" :src="secondPhotoURL()" :alt="produitSelectionne.name">
-      </div>
-      <div class="presentation">
-        <h2>{{produitSelectionne.name}}</h2>
-        <div v-for="artisan in artisanProduit" :key="artisan.id">
-          <CarteArtisan :artisan="artisan"/>
-        </div>
-        <ul>
-          <li><i class="fas fa-caret-right"></i> Origine : {{produitSelectionne.origine}}</li>
-          <li><i class="fas fa-caret-right"></i> Dimensions :  {{produitSelectionne.dimensions}}</li>
-          <li><i class="fas fa-caret-right"></i> Matériaux : {{produitSelectionne.materials}}</li>
-        </ul>
-        <p>{{produitSelectionne.longPrez}}</p>
-      </div> -->
     </div>
   </div>
 </template>
@@ -42,7 +26,7 @@ data() {
       axios.get(`http://localhost:3000/produitSelect/${this.$route.params.id}`)
       .then(response => (this.produitSelect = response.data));
       // son artisan :
-      axios.get(`http://localhost:3000/artisanProduit/${this.$route.params.id}`).then(response => (this.artisanProduit = response.data));
+      // axios.get(`http://localhost:3000/artisanProduit/${this.$route.params.id}`).then(response => (this.artisanProduit = response.data));
   },
 };
 

@@ -30,6 +30,7 @@ export default {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    border-radius: 0.15rem;
   }
 
   .artisan h4, .artisan h3 {

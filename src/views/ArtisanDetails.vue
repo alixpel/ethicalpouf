@@ -1,10 +1,11 @@
 <template lang="html">
-  <div class="">
+  <div class="background">
     <div class="artisan-ensemble" v-for="artisan in artisanSelect" :key="artisan.id">
+      <div class="smartphone"><h3>{{ artisan.name}}</h3></div>
       <PortraitArtisan :artisan="artisan" class="portrait"/>
       <div v-for="artisan in artisanSelect" :key="artisan.id" class="presentation">
-        <h3>{{ artisan.name}}</h3>
-        <p> Présentation:{{ artisan.presentation}}</p>
+        <div class="desktop"><h3>{{ artisan.name}}</h3></div>
+        <p>{{ artisan.presentation}}</p>
       </div>
     </div>
     
@@ -44,24 +45,33 @@ export default {
 
 <style lang="css" scoped>
 
+  .background {
+    background-color: rgb(250, 250, 250);
+    padding-bottom: 2rem;
+    padding-top: 4rem;
+  }
+
   .artisan-ensemble {
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.2rem;
     display: flex;
     flex-direction: row;
+    height: 90vh;
+    justify-content: space-between;
     margin: auto;
     margin-bottom: 3rem;
     min-height: 90vh;
+    padding: 1rem;;
     width: 90vw;
   }
 
   .presentation, .portrait {
-    width: 40vw;
-  }
-
-  .portrait {
+    width: 43.5vw;
   }
 
   .presentation {
-    margin-left: 1rem;
+    overflow: scroll;
+    padding: 1rem;
     text-align: left;
   }
 
@@ -85,6 +95,10 @@ export default {
     padding: 2rem 1rem;
   }
 
+  .smartphone {
+    display: none;
+  }
+
   .presentation h2 {
     color: #0f5209;
     margin-bottom: 2rem;
@@ -94,14 +108,40 @@ export default {
   @media only screen and (max-device-width: 1024px) {
     .artisan-ensemble {
       flex-direction: column;
+      height: auto;
+      width: 95vw;
     }
 
-    .presentation, .portrait {
-      width: 100%;
+    .presentation {
+      height: auto;
+      margin: auto;
+      margin-top: 0rem;
+      text-align: justify;
+      width: 90vw;
+    }
+
+    .portrait {
+      height: 40vw;
+      margin: auto;
+    }
+
+    .artisan {
+      background-size: cover;
+      width: 40vw;
     }
 
     .products-div {
       width: 49%;
+    }
+
+    .smartphone {
+      display: block;
+      margin: 1rem;
+      text-align: center;
+    }
+
+    .desktop {
+      color: rgba(10, 10, 10, 0);
     }
 
   }
@@ -110,6 +150,16 @@ export default {
 
     .products-div {
       width: 100%;
+    }
+
+    .portrait {
+      height: 70vw;
+      margin: auto;
+    }
+
+    .artisan {
+      background-size: cover;
+      width: 70vw;
     }
 
   }

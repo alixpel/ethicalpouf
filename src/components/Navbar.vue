@@ -135,8 +135,8 @@ export default {
 </script>
 
 <style lang="scss" scoped >
-/* DIVISIONS */
 
+/* DIVISIONS */
 
 header {
   display: flex;
@@ -192,10 +192,6 @@ header .menu {
   position: absolute;
   width: 40%;
 }
-
-
-/* TITLES */
-
 
 /* TEXT */
 

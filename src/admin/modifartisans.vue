@@ -1,22 +1,21 @@
 <template>
   <div>
     <h2>Nos artisans</h2>
+    <button @click="retourMenu()">retour au menu</button>
+
     <div class="artisans-group">
         <div class="artisan-div" v-for="artisan in artisans" :key="artisan.id">
-          <CarteArtisan :artisan="artisan"/>
+           <h3>{{artisan.name}}</h3>
+           <button @click="changeArtisan(artisan.id)">Modifier cet artisan</button>
         </div>
     </div>
   </div>
 </template>
 
 <script>
-import CarteArtisan from "@/components/CarteArtisan";
-// import {artisans as artisansFromData} from "@/data.js";
-
 export default {
-  name: 'Artisans',
-  components:
-    { CarteArtisan },
+  name: 'modifartisans',
+
   data() {
       return {
         artisans : "",
@@ -26,12 +25,21 @@ export default {
      const axios = require("axios");
      axios.get('http://localhost:3000/artisans')
      .then(response => (this.artisans = response.data))
-   }
+   },
+
+  methods: {
+    retourMenu() {
+        this.$router.push({ path: `/MenuAdmin` });
+      },
+    changeArtisan(identifiant) {
+        this.$router.push({ path: `/modifierArtisan/${identifiant}` });
+      }
+    }
  };
 
 </script >
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 .artisans-group {
   align-content: flex-start;
@@ -43,14 +51,6 @@ export default {
 
 .artisan-div {
   width: 25vw;
-}
-
-.artisan {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 48vh;
-  padding: 2rem 1rem 0rem 1rem;
 }
 
 
@@ -69,10 +69,6 @@ export default {
   .artisan-div {
     width: 48vw;
   }
-
-  .artisan {
-      height: 33.5vh;
-    }
  }
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
@@ -90,12 +86,5 @@ export default {
     font-size: 3rem;
   }
 }
-
-
-
-
-
-
-
 
 </style>

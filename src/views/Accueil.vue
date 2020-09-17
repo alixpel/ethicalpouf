@@ -13,7 +13,7 @@
       <h2>L'artisan du mois</h2>
       <div class="artisan-du-mois">
         <div class="portrait" v-for="artisan in artisanDuMois" :key="artisan.id">
-            <CarteArtisan :artisan="artisan"/>
+          <CarteArtisan :artisan="artisan"/>
         </div>
         <div class="produits">
           <div class="product-div" v-for="product in produitsArtisanDuMois" :key="product.id">
@@ -41,45 +41,21 @@
       </div>
     </div>
     <div class="engagements-div">
-      <h2>Nos engagements</h2>
       <div class="engagements">
         <div class="engagement">
-          <p>Notre projet et l’effet papillon de nos achats.</p>
-          <p>Acheter, cette simple action quotidienne peut receler des enjeux éthiques, humains et écologiques.</p>
-          <p>Afin de vous permettre de consommer l’esprit serein, Ethically s’est chargé de sélectionner les marques les plus responsables du marché européen et africain.</p>
-          <p>Ainsi, vous ne trouverez que des marques qui ont adopté une démarche humainement et écologiquement éthique.</p>
-        </div>
-        <div class="engagement">
-          <p>Nos 3 missions
-          <p>Pallier à la surexploitation de nouvelles matières premières.</p>
-          <p>Limiter la surproduction de déchets.</p>
-          <p>Soutenir les entreprises sociales et solidaires.</p>
-          <p>Concrètement, nos produits sont fait à partir de matériaux recyclés, confectionnés dans le respect des droits humains et permettant une rémunération équitable.</p>
-          <p>Concrètement, nos produits sont fait à partir de matériaux recyclés, dont la fabrication est respectueuse des droits humains et la rémunération de toutes les parties prenantes équitable.</p>
-          <p>Nous tiens également à coeur la problématique de la pollution carbone. C’est la raison pour laquelle vous pouvez choisir chez des artisans près de chez vous.</p>
-        </div>
-        <div class="engagement">
-          <p>Nos valeurs</p>
-          <p>La clé de voûte de notre projet est l’éthique.</p>
-          <p>Il en découle la transparence et une sélection accrue de nos produits.</p>
-          <p>Ainsi, nous vous assurons qu’ils sont écologiquement responsable, issus de l’économie circulaire, respectueux des droits humains, avec une rémunération équitable de toutes les parties prenantes.</p>
-        </div>
-        <div class="engagement">
-          <p>Vous et nous, ensemble</p>
+          <h5>Vous et nous, ensemble</h5>
           <p>Nous sommes tous concernés par le sort de notre planète, de son vivant et de nos semblables.</p>
           <p>Nous avons donc décidé d’être acteur du changement et de vous permettre de l’être aussi en consommant humainement et écologiquement éthique.</p>
         </div>
         <div class="engagement">
-          <p>Nos artisans</p>
+          <h5>Nos artisans</h5>
           <p>Nos partenaires ont pris le pari de changer le monde.</p>
           <p>Ensemble, nous pouvons les aider les aider à faire naître un monde meilleur, conscient de ses richesses et de ses vulnérabilités.</p>
         </div>
         <div class="engagement">
-          <p>Le transport</p>
-          <p>Les créations de nos artisans viennent directement de leur atelier jusqu'à chez vous. Moins d'intermédiaire, moins d'acheminement, moins de pollution.</p>
-        </div>
-        <div class="engagement">
-
+          <h5>Le transport</h5>
+          <p>Les créations de nos artisans viennent directement de leur atelier jusqu'à chez vous.</p>
+          <p>Moins d'intermédiaire, moins d'acheminement, moins de pollution.</p>
         </div>
       </div>
     </div>
@@ -124,18 +100,6 @@ export default {
       .then(response => (this.artisansFirstpage = response.data))
 
   },
-  //  mounted() {
-  //    const axios = require("axios");
-  //    axios.get(`http://localhost:3000/artisanDuMois/${this.$route.params.id}`)
-  //     .then(response => (this.artisanDuMois = response.data));
-  //    axios.get(`http://localhost:3000/produitsArtisanDuMois/${this.$route.params.id}`)
-  //     .then(response => (this.produitsArtisanDuMois = response.data));
-  //   axios.get('http://localhost:3000/produitsFirstpage')
-  //    .then(response => (this.produitsFirstpage = response.data))
-  //   axios.get('http://localhost:3000/artisansFirstpage')
-  //    .then(response => (this.produitsFirstpage = response.data))
-  // },
-
 
 }
 
@@ -175,7 +139,7 @@ export default {
   height: 90vh;
   justify-content: space-between;
   margin: 1rem;
-  padding: 2rem 1rem 0.6rem 1rem;
+  padding: 2rem 1rem 0.4rem 1rem;
   width: 48vw;
 }
 
@@ -193,7 +157,7 @@ export default {
   flex-direction: column;
   height: 90%;
   justify-content: space-between;
-  padding: 0.8rem 1rem;
+  padding: 0.8rem 1rem 0rem 1rem;
 }
 
 .artisan-du-mois .produits {
@@ -220,7 +184,7 @@ export default {
   flex-direction: column;
   height: 48vh;
   justify-content: space-between;
-  padding: 0.8rem 1rem;
+  padding: 0.8rem 1rem 0rem 1rem;
 }
 
 .groupe-produits {
@@ -238,7 +202,7 @@ export default {
   flex-direction: column;
   height: 48vh;
   justify-content: space-between;
-  padding: 0.8rem 1rem;
+  padding: 0.8rem 1rem 0rem 1rem;
 }
 
 .engagements-div {
@@ -248,18 +212,18 @@ export default {
 }
 
 .engagements {
-  align-content: space-between;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: space-around;
+  margin: auto;
+  width: 75vw;
 }
 
 .engagement {
-  font-size: 1.1rem;
-  height: 100%;
-  padding: 2rem 1rem;
-  text-align: center;
+  padding: 1rem;
+  text-align: justify;
+  width: 29%;
 }
 
 .presentation h2 {
@@ -268,6 +232,18 @@ export default {
 
 .accueil-div h2 {
   margin-bottom: 2rem;
+}
+
+.engagements p {
+  margin-bottom: 0.3rem;
+}
+
+.engagement span {
+  font-weight: 500;
+}
+
+.engagement strong {
+  color: #0f5209;
 }
 
 .presentation a {
@@ -320,8 +296,9 @@ export default {
    }
 
    .engagement {
+     margin: auto;
      padding: 0.5rem 1rem;
-     width: 95vw;
+     width: 100%;
    }
 
    .accueil-div h2 {

@@ -103,7 +103,7 @@ data() {
     display: flex;
     justify-content: space-around;
     margin: 1rem 0rem;
-    padding: 0.6rem 0rem 0.4rem 0rem;
+    padding: 0.5rem 0rem 0.4rem 0rem;
   }
 
   .type, .category {
@@ -196,7 +196,6 @@ data() {
   }
 
   @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
-
 
     .product {
       height: 43vh;

@@ -1,38 +1,43 @@
 <template>
   <div class="artisan-form artisans-group">
-
-<!-- boucle de chaque artisan avec le bouton modifier -->
-    <div class="artisan-div" v-for="artisan in artisans" :key="artisan.id">
-      <h2>{{artisan.name}}</h2>
-      <button type="button" @click="modification = true">modifier cet artisan</button>
+      <h2>Modifier cet artisan</h2>
+       
+      <div class="artisan-div" v-for="artisan in artisanSelect" :key="artisan.id">
+      <button @click="retourMenu()">retour au menu</button>
      
-<!-- si on clique, on accède au formulaire -->  
-    <form v-if="modification">
+      <form>
 
-        <label for="">name</label>
-        <input type="text" v-model="artisan.name" /><br><br>
-
-        <label for="presentation">présentation</label>
-        <textarea v-model="artisan.presentation" rows="15" cols="105" ></textarea> <br><br>
-
-        <label for="origine">origine</label>
-        <input type="text" v-model="artisan.origine"/><br><br>
-
-        <label for="photo">portrait</label>
-        <input type="file" name="photo" v-on:change="artisan.photo" /><br><br>
-
-        <label for="firstPage">première page</label>
-        <input type="checkbox" v-model="artisan.firstPage"><br><br>
-
-        <label for="artisanDuMois">artisan du mois</label>
-        <input type="checkbox" v-model="artisan.artisanDuMois"><br><br>
+        <div class="field">
+          <label for="">name</label>
+          <input type="text" v-model="artisan.name" />
+        </div>
+        <div class="field">
+          <label for="presentation">présentation</label>
+          <textarea v-model="artisan.presentation" rows="15" cols="105" ></textarea>
+        </div>
+        <div class="field">
+          <label for="photo">portrait</label>
+          <input type="file" name="photo" v-on:change="photoDidChange" />
+        </div>
+        <div class="field">
+          <label for="origine">origine</label>
+          <input type="text" v-model="artisan.origine"/>
+        </div>
+        <div class="field">
+          <label for="firstPage">première page</label>
+          <input type="checkbox" v-model="artisan.firstPage">
+        </div>
+        <div class="field">
+          <label for="artisanDuMois">artisan du mois</label>
+          <input type="checkbox" v-model="artisan.artisanDuMois">
+        </div>
 
         <button type="button" @click="putArtisan(artisan)">Envoyer</button>
-    </form>
+      </form>
 
  <!--la réponse du formulaire ci-dessous si ça a été validé:  -->
-    <p v-if="success">L'artisan a bien été modifié</p>
-   </div>
+      <p v-if="success">L'artisan a bien été modifié</p>
+      </div>
   </div>
 </template>
 
@@ -41,41 +46,44 @@ export default {
   name: "ModifierArtisan",
   data() {
     return {
-       artisans: "", // correspond au tableau get
-       success: false,
-       modification: false
+       artisanSelect: "", // correspond au tableau get
+       success: false
     }
   },
 
-    mounted() {
+  mounted() {
      const axios = require("axios");
-     axios.get('http://localhost:3000/artisans')
-     .then(response => (this.artisans = response.data))
+       axios.get(`http://localhost:3000/artisanSelect/${this.$route.params.id}`)
+      .then(response => (this.artisanSelect = response.data));
   
    },
 
   methods: {
-    putArtisan(artisan) {
- 
+     retourMenu() {
+        this.$router.push({ path: `/MenuAdmin` });
+      },
+
+      photoDidChange(event) {
+      let fileInput = event.target;
+      let files = fileInput.files;
+      if (files.length) {
+        let file = files[0];
+        this.photoFile = file;
+        }
+      },
+
+      putArtisan(artisan) {
         const axios = require('axios');
         axios.put(`http://localhost:3000/changeArtisan/${artisan.id}`, {
           name: artisan.name,
           presentation: artisan.presentation,             
           origine: artisan.origine,
-          photo: artisan.photo,
+          photo: artisan.photoFile,
           firstPage: artisan.firstPage,
           artisanDuMois: artisan.artisanDuMois        
       })
       
-
       .then(() => {
-        // this.name = this.artisan.name;
-        // this.presentation = this.artisan.presentation;
-        // this.thumbnail = "";
-        // this.photo = "";
-        // this.origine = this.artisan.origine;
-        // this.firstPage =this.artisan.firstPage;
-        // this.artisanDuMois = this.artisan.artisanDuMois;
         this.success = true;
       })
       .catch((err) => {

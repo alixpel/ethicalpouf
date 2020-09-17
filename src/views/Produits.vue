@@ -51,7 +51,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 48vh;
-    padding: 2rem 1rem;
+    padding: 2rem 1rem 0rem 1rem;
   }
 
 

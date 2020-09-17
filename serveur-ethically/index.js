@@ -67,7 +67,7 @@ app.get('/produits', (req, res) => {
     })
 })
 //requête GET pour afficher un produit:
-app.get('/produit/:id', (req, res) => {
+app.get('/produitSelect/:id', (req, res) => {
     let sql = 'SELECT * FROM produits WHERE id=' + req.params.id;
     db.query(sql, (err, results) => {
         if(err) throw err;
@@ -83,7 +83,7 @@ app.get('/artisans', (req, res) => {
     })
 })
 //requête GET pour afficher un artisan:
-app.get('/artisan/:id', (req, res) => {
+app.get('/artisanSelect/:id', (req, res) => {
     let sql = 'SELECT * FROM artisans WHERE id=' + req.params.id;
     db.query(sql, (err, results) => {
         if(err) throw err;
@@ -107,6 +107,50 @@ app.get('/artisanProduit:id', (req, res) => {
         res.status(200).send(results);
     })
 })
+
+///REQUETE GET POUR PAGE ACCUEIL////////////////////////////////////////////////////////
+// GET POUR AFFICHER 8 PRODUITS MAXI QUI ONT été sélectionné par firstPage
+app.get('/produitsFirstpage', (req, res) => {
+    let sql = 'SELECT * FROM produits WHERE firstPage = 1 LIMIT 4';
+    db.query(sql, (err, results) => {
+        if(err) throw err;
+        res.status(200).send(results);
+    })
+})
+// GET POUR AFFICHER 8 ARTISANS MAXI QUI ONT été sélectionné par firstPage
+app.get('/artisansFirstpage', (req, res) => {
+    let sql = 'SELECT * FROM artisans WHERE firstPage = 1 LIMIT 8';
+    db.query(sql, (err, results) => {
+        if(err) throw err;
+        res.status(200).send(results);
+    })
+})
+
+//requête GET pour afficher l' artisan du mois:
+app.get('/artisanDuMois', (req, res) => {
+    let sql = 'SELECT * FROM artisans WHERE artisanDuMois = 1 LIMIT 1' ;
+    db.query(sql, (err, results) => {
+        if(err) throw err;
+        res.status(200).send(results);
+    })
+})
+//requête GET pour afficher 4 produits de l'artisan du mois:
+app.get('/produitsArtisanDuMois', (req, res) => {
+    let sql = 'SELECT * FROM produits WHERE produitDuMois = 1 LIMIT 4' ;
+    db.query(sql, (err, results) => {
+        if(err) throw err;
+        res.status(200).send(results);
+    })
+})
+
+// requête GET pour sélectionner les produits par categorie
+app.get('/produitsCategory/:category', (req, res) => {
+    let sql = "SELECT * FROM produits WHERE category =" + "'" + req.params.category + "'";
+    db.query(sql, (err, result) => {
+        if(err) throw err;
+        res.status(200).send(result);
+    })
+  });
 
 //////////////// REQUETES POST ////////////////
 
@@ -193,12 +237,28 @@ app.delete('/produitdelete/:id', (req, res) => {
 /////////////////////UPDATE////////////////////////////////////////////////
 ///requête UPDATE pour un artisan
 
+// app.put('/changeArtisan/:id', (req, res) => {
+//     let sql =  `UPDATE artisans SET
+//                         name = '${req.body.name}' ,
+//                         presentation = '${req.body.presentation}',
+//                         photo = '${req.body.photo}',
+//                         firstPage = ${req.body.firstPage},
+//                         artisanDuMois = ${req.body.artisanDuMois}
+//     WHERE id=` + req.params.id;
+//     db.query(sql, (err, results) => {
+//         if(err) throw err;
+//         res.status(200).send(results);
+//     })
+// })
+
+// essai de modification :
 app.put('/changeArtisan/:id', (req, res) => {
+    let photoFile = req.files.photoFile;
+    photoFile.mv('./uploads/' + photoFile.name);
     let sql =  `UPDATE artisans SET
                         name = '${req.body.name}' ,
                         presentation = '${req.body.presentation}',
-                        thumbnail = '${req.body.thumbnail}',
-                        photo = '${req.body.photo}',
+                        photo = '${photoFile.name}',
                         firstPage = ${req.body.firstPage},
                         artisanDuMois = ${req.body.artisanDuMois}
     WHERE id=` + req.params.id;
@@ -230,49 +290,7 @@ app.put('/changeProduit/:id', (req, res) => {
     })
 })
 
-///REQUETE GET POUR PAGE ACCUEIL////////////////////////////////////////////////////////
-// GET POUR AFFICHER 8 PRODUITS MAXI QUI ONT été sélectionné par firstPage
-app.get('/produitsFirstpage', (req, res) => {
-    let sql = 'SELECT * FROM produits WHERE firstPage = 1 LIMIT 4';
-    db.query(sql, (err, results) => {
-        if(err) throw err;
-        res.status(200).send(results);
-    })
-})
-// GET POUR AFFICHER 8 ARTISANS MAXI QUI ONT été sélectionné par firstPage
-app.get('/artisansFirstpage', (req, res) => {
-    let sql = 'SELECT * FROM artisans WHERE firstPage = 1 LIMIT 8';
-    db.query(sql, (err, results) => {
-        if(err) throw err;
-        res.status(200).send(results);
-    })
-})
 
-//requête GET pour afficher l' artisan du mois:
-app.get('/artisanDuMois', (req, res) => {
-    let sql = 'SELECT * FROM artisans WHERE artisanDuMois = 1 LIMIT 1' ;
-    db.query(sql, (err, results) => {
-        if(err) throw err;
-        res.status(200).send(results);
-    })
-})
-//requête GET pour afficher 4 produits de l'artisan du mois:
-app.get('/produitsArtisanDuMois', (req, res) => {
-    let sql = 'SELECT * FROM produits WHERE produitDuMois = 1 LIMIT 4' ;
-    db.query(sql, (err, results) => {
-        if(err) throw err;
-        res.status(200).send(results);
-    })
-})
-
-// requête GET pour sélectionner les produits par categorie
-app.get('/produitsCategory/:category', (req, res) => {
-    let sql = "SELECT * FROM produits WHERE category =" + "'" + req.params.category + "'";
-    db.query(sql, (err, result) => {
-        if(err) throw err;
-        res.status(200).send(result);
-    })
-  });
 
 
 

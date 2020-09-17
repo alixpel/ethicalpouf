@@ -1,5 +1,5 @@
 <template>
-  <div class="accueil-admin">
+  <div>
     <h2>Bienvenue dans la partie administrative du site</h2>
 
     <h2>Les artisans</h2>
@@ -11,6 +11,11 @@
       <button @click="ajoutProduit()">Ajouter un produit</button>
       <button @click="changeProduit()">Modifier un produit</button>
       <button @click="supprimerProduit()">Supprimer un produit</button>
+
+    <h2>Inscription</h2>
+      <button @click="voirInscrit()">voir inscription newsletter</button>
+
+
        
   </div>
 </template>
@@ -39,6 +44,9 @@ export default {
       },
       supprimerProduit() {
         this.$router.push({ path: `/deleteproduit` });
+      },
+      voirInscrit() {
+        this.$router.push({ path: `/inscriptionVoir` });
       }
     }
  };
@@ -46,10 +54,6 @@ export default {
 </script >
 
 <style lang="scss">
-
-.accueil-admin {
-  margin: 1rem;
-}
 
 .artisans-group {
   align-content: flex-start;

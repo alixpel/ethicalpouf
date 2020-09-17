@@ -16,6 +16,8 @@ import modifierProduit from "@/admin/modifierProduit.vue";
 import modifProduits from "@/admin/modifProduits.vue";
 import DeleteProduit from "@/admin/DeleteProduit.vue";
 import MenuAdmin from "@/admin/MenuAdmin.vue";
+import inscriptionVoir from "@/admin/inscriptionVoir.vue";
+
 
 Vue.use(VueRouter);
 
@@ -108,6 +110,11 @@ const routes = [
     path: '/MenuAdmin',
     name: 'MenuAdmin',
     component: MenuAdmin,
+  },
+  {
+    path: '/inscriptionVoir',
+    name: 'inscriptionVoir',
+    component: inscriptionVoir,
   },
 
   

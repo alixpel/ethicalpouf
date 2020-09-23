@@ -39,11 +39,11 @@
       <!-- photo PARTIE ALIX-->
       <div class="field">
         <label for="photo">photo</label>
-        <input type="file" name="photo" v-on:change="photoDidChange" />
+        <input class="file-input" type="file" name="photo" v-on:change="photoDidChange" />
       </div>
       <div class="field">
         <label for="secondPhoto">deuxième photo</label>
-        <input type="file" name="secondPhoto" v-on:change="secondPhotoDidChange" />
+        <input class="file-input" type="file" name="secondPhoto" v-on:change="secondPhotoDidChange" />
       </div>
       <!-- fin photo -->
       <div class="field">
@@ -60,7 +60,9 @@
     </form>
  <!--la réponse du formulaire ci-dessous si ça a été validé:  -->
     <p v-if="success">Le produit a bien été enregistré</p>
+    <button class="accueil-button" @click="retourMenu()">retour au menu</button>
   </div>
+  
 </template>
 
 <script>
@@ -147,7 +149,10 @@ export default {
         console.log(err);
       });
     }
-  }
+  },
+  retourMenu() {
+        this.$router.push({ path: `/MenuAdmin` });
+      },
 }
 </script>
 
@@ -166,6 +171,10 @@ export default {
     width: 65%;
   }
 
+  .field {
+    margin: 0.3rem 0rem;
+  }
+
   label {
     text-align: left;
     width: 18%;
@@ -177,20 +186,60 @@ export default {
     width: 50%;
   }
 
+  .file-input {
+    border-radius: 0px;
+  }
+
   textarea {
     vertical-align: top;
   }
 
-  button {
-    background-color: #006845;
+  .send {
+    background-color: rgb(253, 255, 128);
     border: none;
     border-radius: 1rem;
-    color: white;
+    color: rgb(87, 87, 87);
     font-size: 0.9rem;
     font-weight: 500;
     margin: 2rem 0rem;
     padding: 0.2rem 1rem 0.3rem 1rem;
     text-align: center;
+  }
+
+  .send:hover {
+    background-color: #d1fbef;
+    color: #006845;
+    transition: all 0.2s ease-out;
+  }
+
+  .accueil-button {
+    background-color: #006845;
+    border: none;
+    border-radius: 0.6rem;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 2rem 0rem 2rem 0rem;
+    padding: 0.2rem 1rem 0.3rem 1rem;
+    text-align: center;
+    text-size-adjust: 2vh;
+  }
+
+  .accueil-button:hover {
+    background-color: #d1fbef;
+    color: #006845;
+    transition: all 0.2s ease-out;
+  }
+
+  .upload {
+    background-color: #dbdbdb;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.2rem 1rem 0.3rem 1rem;
+    text-align: center;
+    width: 7rem;
   }
 
 

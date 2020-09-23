@@ -1,0 +1,74 @@
+<template>
+  <div>
+    <h2>Les produits</h2>
+    <div class="products-group">
+      <div class="product-div" v-for="product in produits" :key="product.id">
+        <CarteProduit :product="product"/>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+
+  import CarteProduit from "@/components/CarteProduit";
+  // import {products as productsFromData} from "@/data.js";
+
+  export default {
+    name: 'Produits',
+    components:
+      { CarteProduit },
+    data() {
+        return {
+          produits : "",
+        }
+      },
+    mounted() {
+       const axios = require("axios");
+       axios.get('http://localhost:3000/produits')
+       .then(response => (this.produits = response.data))
+     }
+   };
+
+</script>
+
+<style lang="css" scoped>
+
+  .products-group {
+    align-content: flex-start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .product-div {
+    width: 25vw;
+  }
+
+  .product {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 48vh;
+    padding: 2rem 1rem;
+  }
+
+
+  @media only screen and (max-device-width: 1024px) {
+
+    .product-div {
+      width: 48vw;
+    }
+
+    .product {
+      height: 33.5vh;
+    }
+  }
+
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+    .product-div {
+      width: 98vw;
+    }
+  }
+</style>

@@ -95,7 +95,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+
     .artisans-group {
       align-content: flex-start;
       display: flex;
@@ -104,7 +106,7 @@ export default {
       margin-bottom: 2rem;
     }
     .artisan-div {
-      width: 25vw;
+      width: 100%;
     }
   .artisan-form {
     background-color: rgb(240, 240, 240);
@@ -124,12 +126,22 @@ export default {
   input, textarea {
     border: 0px;
     border-radius: 1rem;
+    padding: 0.5rem ;
     width: 50%;
   }
   textarea {
     vertical-align: top;
   }
   button {
+    background-color: #006845;
+    border: none;
+    border-radius: 1rem;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 2rem 0rem;
+    padding: 0.2rem 1rem 0.3rem 1rem;
+    text-align: center;
     text-size-adjust: 2vh;
   }
 

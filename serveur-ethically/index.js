@@ -290,12 +290,24 @@ app.put('/changeProduit/:id', (req, res) => {
     })
 })
 
+//////////////// REQUETES POST ET GET POUR LA NEWSLETTER ////////////////
 
-
-
-
-
-
+app.post('/inscription/nouveau', (req, res) => {
+    let sql =  `INSERT INTO newsletter
+                                      (email)
+                    VALUES ('${req.body.email}')`;
+    db.query(sql, (err, results) => {
+          if(err) throw err;
+          res.status(200).send(results);
+    })
+  })
+  app.get('/newsletters', (req, res) => {
+    let sql = 'SELECT * FROM newsletter ORDER BY id DESC';
+    db.query(sql, (err, results) => {
+        if(err) throw err;
+        res.status(200).send(results);
+    })
+})
 
 
 

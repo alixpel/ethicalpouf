@@ -68,15 +68,19 @@ export default {
   background-color: #d1fbef;
   border-radius: 1rem 1rem 0rem 0rem;
   margin: auto;
-  width: 60vw;
+  width: 70vw;
 }
 
 .admin-group {
   background-color: white;
   border-radius: 0rem 0rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   margin: auto;
+  min-height: 80vh;
   padding-top: 1rem;
-  width: 60vw;
+  width: 70vw;
 }
 
 .button-group {
@@ -84,12 +88,18 @@ export default {
   flex-direction: row;
   justify-content: space-around;
   margin: auto;
+  margin-top: 1rem;
   width: 95%;
 }
 
   h2 {
     margin: 0px;
     padding: 0.6rem;
+  }
+
+  h3 {
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
   }
 
   .admin-button {

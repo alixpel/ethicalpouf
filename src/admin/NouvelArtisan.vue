@@ -53,6 +53,9 @@ export default {
   },
 
   methods: {
+    retourMenu() {
+        this.$router.push({ path: `/MenuAdmin` });
+      },
     photoDidChange(event) {
       let fileInput = event.target;
       let files = fileInput.files;
@@ -90,9 +93,7 @@ export default {
       });
     }
   },
-  retourMenu() {
-        this.$router.push({ path: `/MenuAdmin` });
-      },
+  
   }
 
 </script>
